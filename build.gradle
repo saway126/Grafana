@@ -22,10 +22,18 @@ ext {
 }
 
 dependencies {
+    // ✅ Spring Core + Web + Actuator
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'          // 💥 웹 서버 실행용 추가!
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'de.codecentric:spring-boot-admin-starter-server'
-    runtimeOnly 'io.micrometer:micrometer-registry-graphite'
+
+    // ✅ Prometheus Metrics Exporter
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+
+    // ✅ Spring Boot Admin (서버 모니터링 UI)
+    implementation 'de.codecentric:spring-boot-admin-starter-server'
+
+    // ✅ 테스트
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
