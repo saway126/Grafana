@@ -7,17 +7,15 @@ services:
       dockerfile: docker/Dockerfile
     ports:
       - "8080:8080"
-    depends_on:
-      - prometheus
     networks:
       - monitoring
 
   prometheus:
     image: prom/prometheus
-    volumes:
-      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - monitoring
 
