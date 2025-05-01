@@ -16,8 +16,6 @@ services:
       - "9090:9090"
     volumes:
       - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-    networks:
-      - monitoring
 
   grafana:
     image: grafana/grafana
